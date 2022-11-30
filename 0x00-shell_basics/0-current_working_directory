@@ -1,2 +1,2 @@
 #!/bin/bash x
-ls -la
+type ls -l
