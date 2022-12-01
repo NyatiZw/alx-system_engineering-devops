@@ -1,2 +1,2 @@
 #!/bin/bash
-sudo chmod - rwxr-xr-- ./hello
+sudo chmod 701 hello
