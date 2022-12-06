@@ -1,2 +1,2 @@
 #!/bin/bash
-tr -c 'A, c' 'Z, e'
+tr -t ['A, c'] ['Z, e]'
