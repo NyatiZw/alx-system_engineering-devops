@@ -1,0 +1,2 @@
+#!/bin/bash
+bash -c 'printf "%s\n" {{a..z},{!o..o}}{{a..z}{!o..o}}.suffix'
