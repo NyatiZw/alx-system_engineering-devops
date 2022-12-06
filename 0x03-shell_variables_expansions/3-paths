@@ -1,2 +1,2 @@
 #!/bin/bash
-tree | tail -l
+file $(ls l /PATH | grep ^d | wc -l)
