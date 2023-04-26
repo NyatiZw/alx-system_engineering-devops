@@ -6,9 +6,9 @@ while [ $x -le 20 ];
 do
 	case $x in
 		exit) break ;;
-		4) echo "bad luck from China" ;;
-		9) echo "bad luck from Japan" ;;
-		17) echo "bad luck from Italy" ;;
+		5) echo "bad luck from China" ;;
+		10) echo "bad luck from Japan" ;;
+		18) echo "bad luck from Italy" ;;
 	esac
 	echo "$x"
 	x=$(( x + 1 ))
