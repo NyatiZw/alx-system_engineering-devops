@@ -1,5 +1,1 @@
-#!/bin/bash
-
-# Script to print own PID
-
 echo "$$"
