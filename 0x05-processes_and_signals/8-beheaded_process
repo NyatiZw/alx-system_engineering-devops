@@ -7,5 +7,7 @@ PID=$(pgrep -f "7-highlander")
 
 # Check if the process is running
 if [ -z "$PID" ]; then
+	no-op
+else
 	kill -TERM "$PID"
 fi
