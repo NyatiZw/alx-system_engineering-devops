@@ -8,8 +8,8 @@ process_name="4-to_infinity_and_beyond"
 pid=$(ps -ef | grep $process_name | grep -v grep | awk '{print $2}')
 
 # Check if the process is running
-if [ -z $pid ]; then
+if [ -z "$pid" ]; then
 	exit 1
 fi
 
-kill -KILL $pid
+kill -KILL "$pid"
