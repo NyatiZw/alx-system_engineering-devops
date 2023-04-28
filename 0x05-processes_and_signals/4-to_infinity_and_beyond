@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Script to print a string indefinately
+
+while true;
+do
+    echo "To infinity and beyond"
+done

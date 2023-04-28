@@ -1,0 +1,4 @@
+#!/bin/bash
+# Script to grep the word bash
+
+ps axjf | grep bash | grep -v grep

@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Script to terminate 4-to_infinity_and_beyond
+
+# Set the process name
+process_name="4-to_infinity_and_beyond"
+
+# Get the process ID of the process to be terminated
+pid=$(ps -ef | grep $process_name | grep -v grep | awk '{print $2}')
+
+# Check if the process is running
+if [ -z $pid ]; then
+	exit 1
+fi
+
+kill -KILL $pid

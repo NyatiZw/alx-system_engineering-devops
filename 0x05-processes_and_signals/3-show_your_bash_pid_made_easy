@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Script to list PID, process name, and the word bash
+
+for pid in /proc/*/; do
+	if [[ -f "$pid/status" && -f "$pid/cmdline" ]]; then
+		process_name=$(awk '/Name/ {print $2}' "$pid/status")
+		if [[ $process_name == *bash* ]]; then
+			pid_number=$(basename "$pid")
+			echo "$pid_number $process_name"
+		fi
+	fi
+done
