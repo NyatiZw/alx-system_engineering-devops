@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Script to print a string indefinately
+# add sleep 2 in between each iteration
+# display I am invincible!!! when recieving a SIGTERM signal
+
+function handle_sigterm {
+	echo "Killed"
+	exit 0
+}
+
+trap 'handle_sigterm' SIGTERM
+
+while true;
+do
+    echo "To infinity and beyond"
+    sleep 2
+done
