@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Script to display current working directory in list format
+
+search_direc=./
+
+for entry in "$search_direc"/*
+do
+	fileName=$(basename "$entry")
+	fileName="${fileName#*-}"
+
+	echo "$fileName"
+done

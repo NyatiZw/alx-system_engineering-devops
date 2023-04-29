@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 # This script displays the time for 12 hours and 59 minutes
 
-begin_hour=`date +%H`
-begin_mins=`date +%M`
+begin_hour=$(date +%H)
+begin_mins=$(date +%M)
 
-time_limit_in_hours=12
+time_limit_in_hours=13
 time_limit_in_mins=59
 
 i=0
