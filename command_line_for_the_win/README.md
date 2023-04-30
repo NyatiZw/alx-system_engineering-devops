@@ -6,7 +6,7 @@ Welcome to my CMD Challenge submission for the ALX System Engineering and Devops
 
 > Below is a list of the tools I used and a link to some light documentation as to how I was able to upload my resources to this repository.
 
-**Tools used : **
+*Tools used:*
 
 1. Vagrant
 2. Virtual-box
