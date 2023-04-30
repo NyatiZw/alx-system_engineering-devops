@@ -15,4 +15,4 @@ Welcome to my CMD Challenge submission for the ALX System Engineering and Devops
 
 Please follow this link to my light write up on my task
 
-[The Ketchup series: Vagrant](https://www.linkedin.com)
+[The Ketchup series: Vagrant](https://www.linkedin.com/pulse/alx-technicalwriting-vagrant-simbarashe-hanga/)
