@@ -1,4 +1,4 @@
-# Alt-H1 *Task on command line CMD challenge*
+# H1 *Task on command line CMD challenge*
 
 Welcome to my CMD Challenge submission for the ALX System Engineering and Devopsproject.
 
