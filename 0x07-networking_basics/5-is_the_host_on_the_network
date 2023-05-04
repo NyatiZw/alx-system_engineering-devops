@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Scri√pt that pings an IP address passed as an argument
 
-arg="$@"
+arg="$1"
 
 if [ -z "$arg" ]; then
 	echo "Usage: 5-is_the_host_on_the_network {IP_ADDRESS}"
