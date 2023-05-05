@@ -5,8 +5,8 @@
 cp /etc/hosts ~/hosts.new
 
 #Replace IP addresses and add new entries
-sed -i '/^127\.0\.0\.1/ s/ .*/ localhost/' ~/hosts.new
-sed -i '/^127\.0\.1\.1/ s/ .*/ localhost.localdomain/' ~/hosts.new
+sed -i '/^127\.0\.0\.1/ .*/ localhost/' ~/hosts.new
+sed -i '/^127\.0\.1\.1/ .*/ localhost.localdomain/' ~/hosts.new
 sed -i '/^127\.0\.0\.2.*/127.0.0.2 localhost/' ~/hosts.new
 sed -i '/^8\.8\.8\.8.*/8.8.8.8 facebook.com/' ~/hosts.new
 
