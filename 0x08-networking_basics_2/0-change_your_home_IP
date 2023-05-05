@@ -2,7 +2,7 @@
 #Script to configure an Ubuntu server
 
 #Backup the original
-sudo cp /etc/hosts ~/hosts.new
+cp /etc/hosts ~/hosts.new
 
 #Replace IP addresses and add new entries
 sed -i '/^127\.0\.0\.1/ s/ .*/ localhost/' ~/hosts.new
