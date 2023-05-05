@@ -11,4 +11,4 @@ sed -i 's/^127\.0\.0\.2.*/127.0.0.2 localhost/' ~/host.new
 sed -i 's/^8\.8\.8\.8.*/8.8.8.8 facebook.com/' ~/hosts.new
 
 #Overwrite the original file with the backup file
-sudo cp -f ~/hosts.new /etc/hosts
+cp -f ~/hosts.new /etc/hosts
