@@ -6,5 +6,4 @@ package { 'python3-pip':
 
 exec { 'install_flask':
   command => 'pip3 install flask',
-  unless  => 'pip3 show flask',
 }
