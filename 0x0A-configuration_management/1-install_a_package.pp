@@ -6,4 +6,5 @@ package { 'python3-pip':
 
 exec { 'install_flask':
   command => 'pip3 install flask',
+  path    => ['/usr/bin'],
 }
