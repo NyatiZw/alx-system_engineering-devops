@@ -4,6 +4,6 @@ package { 'python3-pip':
   ensure => installed,
 }
 
-exec {'install flask':
+exec {'install_flask':
   command => 'pip3 install flask',
 }
