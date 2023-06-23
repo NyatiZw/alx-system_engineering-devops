@@ -5,4 +5,5 @@ exec { 'killmenow_process':
   path        => '/usr/bin:/usr/sbin:/bin:sbin',
   logoutput   => true,
   refreshonly => true,
+  onlyif      => 'pgrep killmenow',
 }
