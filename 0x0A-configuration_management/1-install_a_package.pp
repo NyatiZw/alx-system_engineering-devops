@@ -4,7 +4,8 @@ package { 'python3-pip':
   ensure => installed,
 }
 
-exec { 'install_flask':
+exec {'install_flask':
   command => 'pip3 install flask',
   path    => ['/usr/bin'],
+  unless  => 'pip3 show flask',
 }
