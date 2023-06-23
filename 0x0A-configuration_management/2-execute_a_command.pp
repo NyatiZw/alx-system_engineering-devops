@@ -3,6 +3,4 @@
 exec { 'killmenow_process':
   command     => 'pkill killmenow',
   path        => '/usr/bin:/usr/sbin:/bin:sbin',
-  refreshonly => true,
-  onlyif      => 'pgrep killmenow',
 }
