@@ -6,6 +6,6 @@ package { 'python3-pip':
 
 exec {'install_flask':
   command => 'pip3 install flask',
-  path    => ['/usr/bin'],
+  path    => ['/usr/bin', '/usr/local/bin'],
   unless  => 'pip3 show flask | grep Version | grep -q 2.1.0',
 }
