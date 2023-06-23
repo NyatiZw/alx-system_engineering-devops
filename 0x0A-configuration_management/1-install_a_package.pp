@@ -6,5 +6,5 @@ package { 'python3-pip':
 
 exec {'install flask':
   command => 'pip3 install flask',
-  unless  => 'pip3 show flask | grep Version | grep -q 2.1.0',
+  unless  => 'grep Version | grep -q 2.1.0',
 }
