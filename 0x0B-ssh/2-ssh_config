@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Script to configure client side ssh
+
+config_file="$HOME/.ssh/config"
+
+server_address="190045-web-01"
+private_key_path="$HOME/.ssh/school"
+
+if [ ! -f "$config_file" ]; then
+    touch "$config_file"
+    chmod 600 "$config_file"
+fi
+
+echo "Host $server_address" >> "$config_file"
+echo " IdentityFile $private_key_path" >> "$config_file"
+echo " PasswordAuthentication no" >> "$config_file"
