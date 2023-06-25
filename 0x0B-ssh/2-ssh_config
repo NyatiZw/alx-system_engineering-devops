@@ -4,7 +4,7 @@
 config_file="$HOME/.ssh/config"
 
 server_address="190045-web-01"
-private_key_path="$HOME/.ssh/school"
+private_key_path="~/.ssh/school"
 
 if [ ! -f "$config_file" ]; then
     touch "$config_file"
