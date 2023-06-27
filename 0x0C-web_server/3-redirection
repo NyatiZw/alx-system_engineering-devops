@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Script to configure a Ubuntu machine for redirection
+
+apt update
+
+apt install -y nginx
+
+echo "server {
+    listen 80;
+    server_name _;
+    location / {
+        return 301 http://new-domain.com/new-page;
+    }
+}" > /etc/nginx/sites-available/default
+
+service nginx enable
+
+exit 0
