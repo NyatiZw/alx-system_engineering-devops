@@ -5,7 +5,7 @@ apt update
 
 apt install -y nginx
 
-echo "server {
+echo "server 54.157.189.169 {
     listen 80;
     location / {
         return 200 'Hello World!';
