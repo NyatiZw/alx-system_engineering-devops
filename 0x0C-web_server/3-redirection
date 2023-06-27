@@ -8,8 +8,13 @@ apt install -y nginx
 echo "server {
     listen 80;
     server_name _;
-    location / {
+
+    location /redirect_me {
         return 301 http://new-domain.com/new-page;
+    }
+
+    location / {
+        return 200 'Hello WOrld';
     }
 }" > /etc/nginx/sites-available/default
 
