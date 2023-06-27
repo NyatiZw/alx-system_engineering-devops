@@ -15,4 +15,6 @@ echo "server {
 
 service nginx enable
 
+update-rc.d nginx enable
+
 exit 0
