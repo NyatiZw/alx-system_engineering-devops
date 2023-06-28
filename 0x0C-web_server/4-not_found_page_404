@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+# Script to configure a Ubuntu machine for redirection
+
+apt update
+
+apt install -y nginx
+
+echo "server {
+    listen 80;
+    server_name _;
+    
+    location / {
+        return 200 'Hello World';
+    }
+
+    location = /redirect_me {
+        allow 54.157.189.169;
+	deny all;
+        return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+    }
+
+    error_page 404 /404.html;
+
+    location = /404.html {
+        internal;
+	return 404 'Ceci n'est pas une page';
+    }
+}" > /etc/nginx/sites-available/default
+
+service nginx enable
+
+exit 0
