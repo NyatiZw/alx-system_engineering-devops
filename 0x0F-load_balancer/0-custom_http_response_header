@@ -9,7 +9,7 @@ echo "server {
     listen 80;
     listen [::]:80;
 
-    server_name -;
+    server_name _;
 
     location / {
         add_header X-Served_by $hostname;
