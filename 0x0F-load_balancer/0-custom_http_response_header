@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+#Script to install nginx
+
+sudo apt update
+
+sudo apt install -y nginx
+
+echo "server {
+    listen 80;
+    add_header X-Served_by $hostname;
+    location / {
+        echo 'Hello World!';
+    }
+}" > /etc/nginx/sites-available/default
+
+sudo service nginx start
+
+
+exit 0
