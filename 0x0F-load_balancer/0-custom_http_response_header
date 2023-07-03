@@ -7,13 +7,26 @@ sudo apt install -y nginx
 
 echo "server {
     listen 80;
-    add_header X-Served_by $hostname;
+    listen [::]:80;
+
+    server_name -;
+
     location / {
+        add_header X-Served_by $hostname;
         echo 'Hello World!';
     }
 }" > /etc/nginx/sites-available/default
 
-sudo service nginx start
+sudo ufw enable
+
+sudo ufw allow OpenSSH
+
+sudo ufw allow 'Nginx HTTP'
+sudo ufw allow 'Nginx HTTPS'
+
+sudo nginx -t
+
+sudo service nginx restart
 
 
 exit 0
