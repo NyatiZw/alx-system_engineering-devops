@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 # Bash script to fix a bug that is causing nginx to not use port 80
 
+sudo apt-get update
+
+sudo apt-get nginx
+
 # Get active IPv4 addresses
 active_ips=$(ip addr | grep "inet " | awk '{print $2}' | grep -E "^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$")
 
@@ -13,7 +17,6 @@ server_block="server {
 
 
     location / {
-        try_files $uri $uri/ =404;
     }
 }"
 
@@ -25,5 +28,5 @@ for ip in $active_ips; do
 done
 
 # Restart Nginx
-sudo systemctl restart nginx
+sudo service nginx restart
 
