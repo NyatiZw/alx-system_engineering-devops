@@ -3,7 +3,7 @@
 
 sudo apt-get update
 
-sudo apt-get nginx
+sudo apt-get install nginx
 
 # Configure Nginx
 echo "server {
@@ -14,8 +14,7 @@ echo "server {
 
     location / {
     }
-}" > /etc/nginx/config
+}" > /etc/nginx/conf
 
 # Restart Nginx
-sudo service nginx restart
-
+sudo systemctl reload nginx
