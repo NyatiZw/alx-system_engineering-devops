@@ -2,8 +2,8 @@
 #Script installing High availability proxy load-balancer
 
 # Variables
-SERVER_1="$190045-web-01"
-SERVER_2="$190045-web-02"
+SERVER_1="190045-web-01"
+SERVER_2="190045-web-02"
 
 # Update system packages
 sudo apt update
