@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+# Bash script to fix a bug that is causing nginx to not use port 80
+
+# Get active IPv4 addresses
+active_ips=$(ip addr | grep "inet " | awk '{print $2}' | grep -E "^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$")
+
+# Configure Nginx
+config_file="/etc/nginx/sites-available/default"
+server_block="server {
+    listen 80;
+    server_name _;
+
+    # Add your Nginx configuration directive here
+    # ...
+
+    location / {
+        # Add your location directives here
+	# ...
+    }
+}"
+
+# Generate Nginx server blocks for each active IP
+for ip in $active_ips; do
+	echo "Configuring Nginx for IP: $ip"
+	echo "$server_block" | sudo tee "/etc/nginx/sites-available/$ip" > /dev/null
+	sudo ln -s "/etc/nginx/sites-available/$ip" "/etc/nginx/site-enabled/$ip"
+done
+
+# Restart Nginx
+sudo systemctl restart nginx
+
