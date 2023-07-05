@@ -1,10 +1,10 @@
 Hit:1 http://security.ubuntu.com/ubuntu focal-security InRelease
-Hit:2 http://ppa.launchpad.net/brightbox/ruby-ng/ubuntu focal InRelease
-Hit:3 http://archive.ubuntu.com/ubuntu focal InRelease
-Hit:4 http://archive.ubuntu.com/ubuntu focal-updates InRelease
-Hit:5 http://archive.ubuntu.com/ubuntu focal-backports InRelease
-Hit:6 https://download.docker.com/linux/ubuntu focal InRelease
-Hit:7 https://deb.nodesource.com/node_14.x focal InRelease
+Hit:2 http://archive.ubuntu.com/ubuntu focal InRelease
+Hit:3 http://archive.ubuntu.com/ubuntu focal-updates InRelease
+Hit:4 http://archive.ubuntu.com/ubuntu focal-backports InRelease
+Hit:5 http://ppa.launchpad.net/brightbox/ruby-ng/ubuntu focal InRelease
+Hit:6 https://deb.nodesource.com/node_14.x focal InRelease
+Hit:7 https://download.docker.com/linux/ubuntu focal InRelease
 Reading package lists...
 Reading package lists...
 Building dependency tree...
@@ -91,6 +91,16 @@ The following packages were automatically installed and are no longer required:
   python2-minimal python2.7 python2.7-minimal x11-xserver-utils xdg-utils
 Use 'sudo apt autoremove' to remove them.
 0 upgraded, 0 newly installed, 0 to remove and 1 not upgraded.
-./0-nginx_likes_port_80: line 17: /etc/nginx/conf: No such file or directory
-System has not been booted with systemd as init system (PID 1). Can't operate.
-Failed to connect to bus: Host is down
+tee: /etc/nginx/conf: No such file or directory
+server {
+    listen 80;
+    server_name _;
+    root /var/www/html;
+
+
+    location / {
+    }
+}
+cat: /etc/nginx/nginx.conf: No such file or directory
+ * Restarting nginx nginx
+   ...fail!

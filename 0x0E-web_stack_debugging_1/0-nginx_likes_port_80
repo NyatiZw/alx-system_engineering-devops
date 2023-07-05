@@ -14,7 +14,10 @@ echo "server {
 
     location / {
     }
-}" > /etc/nginx/conf
+}" | sudo tee /etc/nginx/sites-available/default > /dev/null
+
+# Enable default site
+sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
 
 # Restart Nginx
-sudo systemctl reload nginx
+sudo service nginx restart
