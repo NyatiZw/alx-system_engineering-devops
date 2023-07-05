@@ -5,14 +5,14 @@ sudo apt update
 
 sudo apt install -y nginx
 
-echo "server {
-    listen 80;
+echo "server default server{
+    listen 80 default server;
     listen [::]:80;
 
     server_name _;
 
     location / {
-        add_header X-Served_by $hostname;
+        add_header X-Served_by 190045-web-01
         echo 'Hello World!';
     }
 }" > /etc/nginx/sites-available/default
