@@ -9,13 +9,11 @@ config_file="/etc/nginx/sites-available/default"
 server_block="server {
     listen 80;
     server_name _;
+    root /var/www/html;
 
-    # Add your Nginx configuration directive here
-    # ...
 
     location / {
-        # Add your location directives here
-	# ...
+        try_files $uri $uri/ =404;
     }
 }"
 
