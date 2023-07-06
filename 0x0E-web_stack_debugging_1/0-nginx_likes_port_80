@@ -1,23 +1,10 @@
 #!/usr/bin/env bash
 # Bash script to fix a bug that is causing nginx to not use port 80
 
-sudo apt-get update
-
-sudo apt-get install nginx
-
-# Configure Nginx
-echo "server {
-    listen 80;
-    server_name _;
-    root /var/www/html;
-
-
-    location / {
-    }
-}" | sudo tee /etc/nginx/sites-available/default > /dev/null
 
 # Enable default site
-sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
+sudo rm /etc/nginx/sites-enabled/default
+sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 
 # Restart Nginx
 sudo service nginx restart
