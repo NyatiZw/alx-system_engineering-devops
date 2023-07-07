@@ -4,9 +4,9 @@
 display_info() {
   local sub_domain="$1"
   local main_domain="$2"
-  local sub_info=$(dig "$sub_domain.$main_domain" | awk 'NR==1{print $0}')
-  local record_type=$(echo "$sub_info" | awk '{print $2}')
-  local destination=$(echo "$sub_info" | awk '{print $NF}')
+  local sub_info=$(dig +short "$sub_domain.$main_domain")
+  local record_type=$(echo "$sub_info" | awk -F ' ' '{print $2}')
+  local destination=$(echo "$sub_info" | awk -F ' ' '{print $NF}')
 
   echo "The subdomain $sub_domain is a $record_type record and points to $destination."
 }
