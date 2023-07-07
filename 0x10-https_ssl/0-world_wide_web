@@ -2,11 +2,11 @@
 # A bash script that displays information about subdomains
 
 display_info() {
-  sub_domain="$1"
-  main_domain="2"
+  local sub_domain="$1"
+  local main_domain="2"
 
-  record_type=$(dig "$sub_domain.$main_domain" | awk 'NR==1{print $4}')
-  destination=$(dig "$sub_domain.$main_domain" | awk 'NR==1{print $5}')
+  local record_type=$(dig +short "$sub_domain.$main_domain" | awk 'NR==1{print $4}')
+  local destination=$(dig +short "$sub_domain.$main_domain" | awk 'NR==1{print $5}')
 
   echo "The subdomain $sub_domain is a $record_type record and points to $destination."
 }
