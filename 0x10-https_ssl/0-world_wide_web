@@ -14,6 +14,10 @@ display_info() {
   echo "The subdomain $sub_domain is a $record_type record and points to $destination."
 }
 
+if [ $# -lt 1 ]; then
+  exit 1
+fi
+
 #Retrieve domain and subdomain args
 domain="$1"
 subdomain="$2"
