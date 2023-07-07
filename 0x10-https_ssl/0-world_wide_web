@@ -7,18 +7,12 @@ display_info() {
   local sub_info
   sub_info=$(dig +short "$sub_domain.$main_domain")
   local record_type
-  record_type=$(awk '{print $2}' <<< "$sub_info")
+  record_type=$(echo "$sub_info" | awk -F ' ' '{print $2}')
   local destination
   destination=$(echo "$sub_info" | awk -F ' ' '{print $NF}')
 
   echo "The subdomain $sub_domain is a $record_type record and points to $destination."
 }
-
-# Check arguments
-if [ $# -lt 1 ]; then
-  echo "Usage: $0 <domain> [<subdomain>]"
-  exit 1
-fi
 
 #Retrieve domain and subdomain args
 domain="$1"
