@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+# A bash script that displays information about subdomains
+
+display_info() {
+  local sub_domain="$1"
+  local main_domain="$2"
+  local sub_info
+  sub_info=$(dig +short "$sub_domain.$main_domain")
+  local record_type
+  record_type=$(awk '{print $4}' <<< "$sub_info")
+  local destination
+  destination=$(awk '{print $NF}' <<< "$sub_info" | head -n1)
+
+  echo "The subdomain $sub_domain is a $record_type record and points to $destination."
+}
+
+if [ $# -lt 1 ]; then
+  exit 1
+fi
+
+#Retrieve domain and subdomain args
+domain="$1"
+subdomain="$2"
+
+#Define default subdomains
+subdomains=("www" "lb-01" "web-01" "web-02")
+
+#subdomain information
+if [ -n "$subdomain" ]; then
+  #display specified domain infor
+  display_info "$subdomain" "$domain"
+else
+  #infor for default subdomains
+  for sub in "${subdomains[@]}"; do
+    display_info "$sub" "$domain"
+  done
+fi
