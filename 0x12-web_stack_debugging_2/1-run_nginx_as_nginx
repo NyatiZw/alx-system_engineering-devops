@@ -1,29 +1,15 @@
 #!/usr/bin/env bash
+#script to limit privildges to nginx
 
-if ! command -v nginx &>/dev/null; then
-    apt-get update
-    apt-get install -y nginx
-fi
+sudo sed -i 's/#user www-data/user nginx/' /etc/nginx/nginx.conf
 
-service nginx stop
+chmod 644 /etc/nginx/nginx.conf
+chown nginx:nginx /etc/nginx/nginx.conf
 
-sed -i 's/user www-data/user nginx/' /etc/nginx/nginx.conf
+sudo sed -i 's/80 default_server/8080 default_server/' /etc/nginx/sites-available/default
 
-cat << EOF > /etc/nginx/sites-available/default
-server {
-    listen 8080 default_server;
-    listen [::]:8080 default_server;
-    root /var/www/html;
-    index index.html index.htm index.nginx-debian.html;
-    server_name _;
-    location / {
-        try_files \$uri \$uri/ =404;
-    }
-}
-EOF
+sudo systemctl stop apache2
 
-ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+sudo service nginx restart
 
-service nginx start
-
-echo "Nginx is now configured to run as nginx user and listen on all active IPs on port 8080."
+echo "Nginx privileges have been limited."
