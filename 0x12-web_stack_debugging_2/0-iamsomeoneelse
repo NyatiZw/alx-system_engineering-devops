@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
-#Script to take arguement and run whoami command under the specified user
+# Script: 0-iamsomeoneelse
+# Description: This script accepts one arguement and run whoami command
+#              under the specified user. It checks if the user exists
 
 if [ $# -ne 1 ]; then
     exit 1
