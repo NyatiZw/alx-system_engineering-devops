@@ -1,3 +1,10 @@
 #!/usr/bin/env bash
 # Script This script accepts one arguement and run whoami command
-sudo -u "$1" whoami
+
+if [ $# -ne 1 ]; then
+    exit 1
+fi
+
+username="$1"
+
+sudo -u "$username" whoami
