@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """Script that returns information from REST API"""
 
-import requests
 import os
+import requests
 
 
 def get_emp_todo(employee_id):
