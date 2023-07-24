@@ -4,6 +4,7 @@
 import requests
 import os
 
+
 def get_emp_todo(employee_id):
     """Function to get todo progress"""
     base_url = "https://jsonplaceholder.typicode.com/todos/1"
@@ -20,11 +21,13 @@ def get_emp_todo(employee_id):
         tasks_response = requests.get(tasks_url)
         tasks_data = tasks_response.json()
         total_tasks = len(tasks_data)
-        completed_tasks = [task for task in tasks_data if task.get('completed', False)]
+        completed_tasks = [task for task in tasks_data
+                           if task.get('completed', False)]
         num_completed_tasks = len(completed_tasks)
 
-        #Display the progress
-        print("Employee {} is done with tasks({}/{}):".format(employee_name, num_completed_tasks, total_tasks))
+        """Display the progress"""
+        print("Employee {} is done with tasks({}/{}):"
+              .format(employee_name, num_completed_tasks, total_tasks))
         for task in completed_tasks:
             print("\t{{}['title']}".format(title))
 
