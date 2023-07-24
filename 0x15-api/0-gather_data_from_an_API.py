@@ -1,11 +1,9 @@
 #!/usr/bin/python3
 """Script that returns information from REST API"""
 
-import os
-import requests
-
-
 if __name__ == "__main__":
+    import os
+    import requests
 
     def get_emp_todo(n):
         """Function to get todo progress"""
