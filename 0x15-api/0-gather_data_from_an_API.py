@@ -29,7 +29,7 @@ def get_emp_todo(employee_id):
         print("Employee {} is done with tasks({}/{}):"
               .format(employee_name, num_completed_tasks, total_tasks))
         for task in completed_tasks:
-            print("\t{{}['title']}".format(title))
+            print("\t{}".format(task['title']))
 
     except requests.exceptions.RequestException as e:
         print("Error connecting to the API:", e)
