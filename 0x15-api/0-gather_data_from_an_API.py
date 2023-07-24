@@ -7,16 +7,17 @@ import requests
 
 if __name__ == "__main__":
 
-    def get_emp_todo(employee_id):
+    def get_emp_todo(n):
         """Function to get todo progress"""
-        base_url = "https://jsonplaceholder.typicode.com/todos/1"
-        employee_url = "{}/employees/{}".format(base_url, employee_id)
-        tasks_url = "{}/employees/{}/tasks".format(base_url, employee_id)
+        base_url = 'https://jsonplaceholder.typicode.com/todos/1'
+        n = employee_id
+        n_det = "{}/employees/{}".format(base_url, n)
+        tasks_url = "{}/employees/{}/tasks".format(base_url, n)
 
         # Fetch employee information
-        employee_response = requests.get(employee_url)
+        employee_response = requests.get(n_det)
         employee_data = employee_response.json()
-        employee_name = employee_data.get('name', 'employee_id')
+        employee_name = employee_data.get('name', 'n')
 
         # Fetch tasks information
         tasks_response = requests.get(tasks_url)
@@ -31,4 +32,3 @@ if __name__ == "__main__":
               .format(employee_name, num_completed_tasks, total_tasks))
         for task in completed_tasks:
             print("\t{}".format(task['title']))
-
