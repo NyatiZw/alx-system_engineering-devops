@@ -25,9 +25,10 @@ if __name__ == "__main__":
             name = json_usr[0].get('name')
             total_tasks = len(json_todo)
             tasks_done = sum(task.get("completed")
-                            for task in json_todo if task)
+                             for task in json_todo if task)
 
-            print("Employee {} is done with taskss({}/{}):".format(name, tasks_done, total_tasks))
+            print("Employee {} is done with taskss({}/{}):".format(name,
+                  tasks_done, total_tasks))
 
             for todo in json_todo:
                 task_title = todo.get('title')
