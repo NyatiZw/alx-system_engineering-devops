@@ -22,8 +22,8 @@ if __name__ == "__main__":
             None
         """
         base_url = "https://jsonplaceholder.typicode.com"
-        employee_url = "{}/users?id=/{:d}".format(base_url emp_id)
-        todo_url = "{}/todos?userId={:d}".format(base_url emp_id)
+        employee_url = "{}/users?id=/{:d}".format(base_url) + emp_id
+        todo_url = "{}/todos?userId={:d}".format(base_url) + emp_id
 
         try:
             # Fetch employee information
