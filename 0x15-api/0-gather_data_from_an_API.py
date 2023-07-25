@@ -18,7 +18,7 @@ if __name__ == "__main__":
     url_user = "htpps://jsonplaceholder.typicode.com/users?id=" + id
     url_todo = "https://jsonplaceholder.typicode.com/todos?userId=" + id
 
-    r_user = get(url:user)
+    r_user = get(url_user)
     r_todo = get(url_todo)
 
     try:
