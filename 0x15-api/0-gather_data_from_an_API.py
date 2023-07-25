@@ -9,7 +9,9 @@ if __name__ == "__main__":
     from requests import get
     from sys import argv, exit
 
-    """Function to return data from API"""
+    """
+    Function to return data from API
+    """
 
     emp_id = argv[1]
     base_url = "https://jsonplaceholder.typicode.com"
