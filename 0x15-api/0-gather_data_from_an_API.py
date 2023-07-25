@@ -4,40 +4,32 @@ Script that returns information from REST API
 
 """
 
+import requests
 
-if __name__ == "__main__":
-    from requests import get
-    from sys import argv, exit
-
-    try:
-        emp_id = argv[1]
-        is_int = int(emp_id)
-    except:
-        exit()
-
-
+def get_employee_todo_progress(employee_id):
     base_url = "https://jsonplaceholder.typicode.com"
     employee_url = "{}/users?id=/{:d}".format(base_url emp_id)
     todo_url = "{}/todos?userId={:d}".format(base_url emp_id)
 
-    employee_details = requests.get(employee_url)
-    todo_details = requests.get(todo_url)
-
     try:
-        json_usr = employee_details.json()
-        json_todo = todo_details.json()
-    except ValueError:
+        """Fetch employee information"""
+        employee_details = requests.get(employee_url)
+        employee_data = employee_response.json()
+        employee_name = employee_data.get('name', 'Unknown Employee')
 
-    if json_usr and json_todo:
-        name = json_usr[0].get('name')
-        total_tasks = len(json_todo)
-        tasks_done = sum(task.get("completed")
-                         for task in json_todo if task)
+        """Fetch tasks information"""
+        tasks_response = requests.get(task_url)
+        tasks_data = tasks_response.json()
+        total_tasks = len(tasks_data)
+        completed_tasks = [task for task in tasks_data if task.get('completed', False)]
+        num_completed_tasks = len(completed_tasks)
 
-        print("Employee {} is done with tasks({}/{}):".format(name,
-              tasks_done, total_tasks))
+        """Display the progress"""
+        print("Employee {} is done with tasks({}/{}):".format(employee_name,
+              num_completed, total_tasks))
+        for task in completed_tasks:
+            print("\t {}".format(task_title))
 
-        for todo in json_todo:
-            task_title = todo.get('title')
-            if todo.get("completed"):
-                print("\t {}".format(task_title))
+
+if __name__ == "__main__":
+    get_employee_todo_progress(employee_id)
