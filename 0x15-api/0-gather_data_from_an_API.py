@@ -8,6 +8,7 @@ if __name__ == "__main__":
     from requests import get
     from sys import argv, exit
 
+    """ Function to get the userId"""
     try:
         id = argv[1]
         is_int = int(id)
@@ -24,8 +25,6 @@ if __name__ == "__main__":
         js_user = r_user.json()
         js_todo = r_todo.json()
 
-    except ValueError:
-        print("Not a valid JSON")
 
     if js_user and js_todo:
         EMPLOYEE_NAME = js_user[0].get('name')
