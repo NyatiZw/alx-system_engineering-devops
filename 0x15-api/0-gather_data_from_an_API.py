@@ -9,14 +9,16 @@ if __name__ == "__main__":
     from requests import get
     from sys import argv, exit
 
-    """
-    Function to return data from API
-    """
+    try:
+        emp_id = argv[1]
+        is_int = int(emp_id)
+    except:
+        exit()
 
-    emp_id = argv[1]
+
     base_url = "https://jsonplaceholder.typicode.com"
-    employee_url = "{}/users?id=/{}".format(base_url) + emp_id
-    todo_url = "{}/todos?userId={}".format(base_url) + emp_id
+    employee_url = "{}/users?id=/{:d}".format(base_url emp_id)
+    todo_url = "{}/todos?userId={:d}".format(base_url emp_id)
 
     employee_details = requests.get(employee_url)
     todo_details = requests.get(todo_url)
