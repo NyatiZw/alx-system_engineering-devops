@@ -1,16 +1,15 @@
 #!/usr/bin/python3
-
-# Script that returns information from REST API
-# And exports a json file
-
-
+"""
+Script that returns information from REST API
+And exports a json file
+"""
 from sys import argv
 import json
 import requests
 
 
 def to_json():
-    """Returns API data"""
+    """ returns API data"""
     users = requests.get("http://jsonplaceholder.typicode.com/users")
     for u in users.json():
         if u.get('id') == int(argv[1]):
@@ -21,10 +20,6 @@ def to_json():
     for t in todos.json():
         if t.get('userID') == int(argv[1]):
             TASK_STATUS_TITLE.append((t.get('completed'), t.get('title')))
-            for t in todos.json():
-                if t.get('userID') == int(argv[1]):
-                    TASK_STATUS_TITLE.append(
-                        (t.get('completed'), t.get('title')))
 
     """Export file to json"""
     t = []
