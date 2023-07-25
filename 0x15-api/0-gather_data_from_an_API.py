@@ -25,7 +25,7 @@ if __name__ == "__main__":
         js_user = r_user.json()
         js_todo = r_todo.json()
 
-
+    """grab tasks info"""
     if js_user and js_todo:
         EMPLOYEE_NAME = js_user[0].get('name')
         TOTAL_NUMBER_OF_TASKS = len(js_todo)
