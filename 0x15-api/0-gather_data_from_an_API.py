@@ -6,7 +6,9 @@ Script that returns information from REST API
 
 
 if __name__ == "__main__":
-    import requests
+    import os
+    from requests import get
+    from sys import argv, exit
 
 
     def get_employee_todo_progress(employee_id):
