@@ -4,9 +4,9 @@ Script that returns information from REST API
 
 """
 
-import requests
 
 if __name__ == "__main__":
+    import requests
 
 
     def get_employee_todo_progress(employee_id):
