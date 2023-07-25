@@ -20,7 +20,8 @@ def to_json():
             TASK_STATUS_TITLE.append((t.get('completed'), t.get('title')))
             for t in todos.json():
                 if t.get('userID') == int(argv[1]):
-                    TASK_STATUS_TITLE.append((t.get('completed'), t.get('title')))
+                    TASK_STATUS_TITLE.append(
+                        (t.get('completed'), t.get('title')))
 
     """Export file to json"""
     t = []
@@ -30,7 +31,7 @@ def to_json():
     filename = "{}.json".format(argv[1])
     with open(filename, "w") as f:
         json.dump(data, f)
-    
+
 
 if __name__ == "__main__":
     to_json()
