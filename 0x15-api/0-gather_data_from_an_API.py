@@ -8,8 +8,6 @@ if __name__ == "__main__":
     try:
         id = argv[1]
         is_int = int(id)
-    except:
-        exit()
 
     url_user = "https://jsonplaceholder.typicode.com/users?id=" + id
     url_todo = "https://jsonplaceholder.typicode.com/todos?userId=" + id
@@ -20,9 +18,6 @@ if __name__ == "__main__":
     try:
         js_user = r_user.json()
         js_todo = r_todo.json()
-
-    except ValueError:
-        print("Not a valid JSON")
 
     if js_user and js_todo:
         EMPLOYEE_NAME = js_user[0].get('name')
