@@ -1,10 +1,7 @@
 #!/usr/bin/python3
 """
 Script that returns information from REST API
-
-
 And exports a json file
-
 """
 from sys import argv
 import json
