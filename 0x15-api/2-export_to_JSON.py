@@ -16,7 +16,7 @@ def to_json():
             USERNAME = (u.get('username'))
             break
     TASK_STATUS_TITLE = []
-    todos = request.get("http://jsonplaceholder.typicode.com/todos")
+    todos = requests.get("http://jsonplaceholder.typicode.com/todos")
     for t in todos.json():
         if t.get('userID') == int(argv[1]):
             TASK_STATUS_TITLE.append((t.get('completed'), t.get('title')))
