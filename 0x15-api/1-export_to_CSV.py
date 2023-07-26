@@ -34,7 +34,6 @@ def to_csv():
             csvfile,
             fieldnames=fieldnames,
             quoting=csv.QUOTE_ALL)
-        filewriter.writeheader()
         for task in TASK_STATUS_TITLE:
             filewriter.writerow({"USER_ID": argv[1],
                                  "USERNAME": USERNAME,
