@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
-Script that returns information from REST API
-And exports a json file
+Request from API; Return TODO list progress given employee ID
+Export this data to JSON
 """
 from sys import argv
 import json
@@ -9,7 +9,7 @@ import requests
 
 
 def to_json():
-    """ returns API data"""
+    """return API data"""
     users = requests.get("http://jsonplaceholder.typicode.com/users")
     for u in users.json():
         if u.get('id') == int(argv[1]):
@@ -21,10 +21,10 @@ def to_json():
         if t.get('userID') == int(argv[1]):
             TASK_STATUS_TITLE.append((t.get('completed'), t.get('title')))
 
-    """Export file to json"""
+    """export to json"""
     t = []
     for task in TASK_STATUS_TITLE:
-        t.append({"task[1]", "completed": task[0], "username": USERNAME})
+        t.append({"task": task[1], "completed": task[0], "username": USERNAME})
     data = {str(argv[1]): t}
     filename = "{}.json".format(argv[1])
     with open(filename, "w") as f:

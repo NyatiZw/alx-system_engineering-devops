@@ -1,21 +1,8 @@
 #!/usr/bin/python3
 """
 Script that returns information from REST API
-
-This script retrieves information from a REST API endpoint,
-
-speciffically, the 'jsonplaceholder' API,
-
-to get details about a user's tasks and print them in a formatted manner.
-
-Usage:
-    python script_name.py <user_id>
-
-    user_id: An integer representing the user's ID to retrieve.
-
-Example:
-    python 0-gather_data_from_an_API.py 1
 """
+
 
 if __name__ == "__main__":
     from requests import get
