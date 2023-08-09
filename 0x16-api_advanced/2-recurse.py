@@ -4,9 +4,9 @@
 import requests
 
 
-def recurse(subreddit, hot_list=[], after=None):
+def recurse(subreddit, hot_list=[], counter=0, after=None):
     """User agent to avoid too many requests"""
-    headers = {'User-Agent': 'My-User_Agent'}
+    headers = {'User-Agent': 'Your-User_Agent'}
 
     """Prepare parametrs for the Reddit API request"""
     params = {'after': after} if after else {}
@@ -15,7 +15,8 @@ def recurse(subreddit, hot_list=[], after=None):
     response = requests.get('https://www.reddit.com/r/{}/hot.json'
                             .format(subreddit),
                             headers=headers,
-                            params=params)
+                            params=params,
+                            allow_redirects=False)
 
     """ Check if response is successful"""
     if response.status_code == 200:
@@ -29,7 +30,7 @@ def recurse(subreddit, hot_list=[], after=None):
                 for post in posts:
                     hot_list.append(post['data']['title'])
                 """Recursive call with the next 'after' parameter"""
-                return recurse(subreddit, hot_list, data['data']['after'])
+                return recurse(subreddit, hot_list, counter + 1, data['data']['after'])
         except (KeyError, ValueError):
             return ("None")
     elif response.status_code == 404:
