@@ -10,9 +10,9 @@ def number_of_subscribers(subreddit):
 
     """ Send a GET request to the Rddit API"""
     response = requests.get('https://www.reddit.com/r/{}/about.json'
-            .format(subreddit),
-            headers=headers,
-            allow_redirects=False)
+                            .format(subreddit),
+                            headers=headers,
+                            allow_redirects=False)
 
     """ Check if response is successful"""
     if response.status_code == 200:
