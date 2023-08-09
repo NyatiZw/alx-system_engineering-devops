@@ -30,7 +30,11 @@ def recurse(subreddit, hot_list=[], counter=0, after=None):
                 for post in posts:
                     hot_list.append(post['data']['title'])
                 """Recursive call with the next 'after' parameter"""
-                return recurse(subreddit, hot_list, counter + 1, data['data']['after'])
+                return recurse(
+                        subreddit,
+                        hot_list,
+                        counter + 1,
+                        data['data']['after'])
         except (KeyError, ValueError):
             return ("None")
     elif response.status_code == 404:

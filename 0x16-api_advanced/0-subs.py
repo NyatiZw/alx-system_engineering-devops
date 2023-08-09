@@ -6,7 +6,7 @@ import requests
 
 def number_of_subscribers(subreddit):
     """User agent to avoid too many requests"""
-    headers = {'User-Agent': 'My-User_Agent'}
+    headers = {'User-Agent': 'Your-User-Agent'}
 
     """ Send a GET request to the Rddit API"""
     response = requests.get('https://www.reddit.com/r/{}/about.json'
