@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/bash
 # Script to configure nginx server
 
 sudo echo 'server {
