@@ -1,22 +1,20 @@
 server {
-    server_name _;
+	listen 5000 default_server;
+	server_name _;
 
+	location = /airbnb-onepage/ {
+		proxy_pass http://0.0.0.0:5000/airbnb-onepage/;
+	}
 
-    # Application server 
-    location = /airbnb-onepage/ {
-        proxy_pass http://0.0.0.0:5000/airbnb-onepage/;
-    }
+	add_header X-Served-By "190045-web-01";
 
-    #Header:
-    add_header X-Served-By "190045-web-01";
+	root /var/www/html;
 
-    root /var/www/html;
+	listen [::]:5000 default_server;
 
-    index index.html index.htm index.nginx-dbian.html;
+	index index.html index.htm index.nginx-dbian.html;
 
-    location / {
-        # Additional configuration for other routes or files
-        # If necessary
-        try_files $uri $uri/ =404;
-    }
+	location / {
+		try_files $uri $uri/ =404;
+	}
 }
