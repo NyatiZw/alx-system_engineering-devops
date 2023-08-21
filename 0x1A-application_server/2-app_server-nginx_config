@@ -1,6 +1,5 @@
 server {
-	listen 5000 default_server;
-	server_name _;
+	listen 80 default_server;
 
 	location = /airbnb-onepage/ {
 		proxy_pass http://0.0.0.0:5000/airbnb-onepage/;
@@ -10,9 +9,13 @@ server {
 
 	root /var/www/html;
 
-	listen [::]:5000 default_server;
+	listen [::]:80 default_server;
+
+	root /var/www/html;
 
 	index index.html index.htm index.nginx-dbian.html;
+	
+	server_name _;
 
 	location / {
 		try_files $uri $uri/ =404;
