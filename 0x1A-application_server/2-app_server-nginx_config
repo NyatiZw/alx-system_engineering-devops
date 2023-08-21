@@ -15,7 +15,7 @@ server {
 
 	index index.html index.htm index.nginx-dbian.html;
 	
-	server_name _;
+	server_name 18.207.234.153;
 
 	location / {
 		try_files $uri $uri/ =404;
