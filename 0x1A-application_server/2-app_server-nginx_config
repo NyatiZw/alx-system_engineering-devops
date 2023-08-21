@@ -1,5 +1,4 @@
 server {
-    listen 80 default_server;
     server_name _;
 
 
@@ -12,8 +11,6 @@ server {
     add_header X-Served-By "190045-web-01";
 
     root /var/www/html;
-
-    listen [::]:80 default_server;
 
     index index.html index.htm index.nginx-dbian.html;
 
